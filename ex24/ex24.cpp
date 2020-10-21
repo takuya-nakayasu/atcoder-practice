@@ -37,7 +37,7 @@ struct Clock
     //     HH、MM、SSはそれぞれ時間、分、秒を2桁で表した文字列
     string to_str()
     {
-        return hour + ":" + minute + ":" + second;
+        return to_string(hour) + ":" + to_string(minute) + ":" + to_string(second);
     }
 
     // メンバ関数 shift の定義を書く
@@ -49,7 +49,16 @@ struct Clock
     //     diff_second の値が負の場合、時刻を戻す
     //     diff_second の値が正の場合、時刻を進める
     //     diff_second の値は -86400 ~ 86400 の範囲を取とりうる
-    void shift(int diff_second) {}
+    void shift(int diff_second)
+    {
+        // 秒を時間、分、秒の順番に変換して、それぞれ加算する
+        int residue;
+        hour = hour + (diff_second / 60 / 60);
+        residue = diff_second % 60;
+        minute = (minute + residue) / 60;
+        residue = diff_second % 60 % 60;
+        second = second + residue;
+    }
 };
 
 // -------------------
