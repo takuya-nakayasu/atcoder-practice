@@ -37,7 +37,22 @@ struct Clock
     //     HH、MM、SSはそれぞれ時間、分、秒を2桁で表した文字列
     string to_str()
     {
-        return to_string(hour) + ":" + to_string(minute) + ":" + to_string(second);
+        string hour_s = to_string(hour);
+        string minute_s = to_string(minute);
+        string second_s = to_string(second);
+        if (hour < 10)
+        {
+            hour_s = "0" + hour_s;
+        }
+        if (minute < 10)
+        {
+            minute_s = "0" + minute_s;
+        }
+        if (second < 10)
+        {
+            second_s = "0" + second_s;
+        }
+        return hour_s + ":" + minute_s + ":" + second_s;
     }
 
     // メンバ関数 shift の定義を書く
