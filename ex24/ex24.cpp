@@ -73,6 +73,13 @@ struct Clock
         minute = minute + (residue / 60);
         residue = residue - ((residue / 60) * 60);
         second = second + residue;
+
+        // 繰り上げ、繰り下げ
+        if (second > 59)
+        {
+            minute++;
+            second = second - 60;
+        }
     }
 };
 
