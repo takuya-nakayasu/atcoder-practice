@@ -80,6 +80,29 @@ struct Clock
             minute++;
             second = second - 60;
         }
+        if (second < 0)
+        {
+            minute--;
+            second = 60 + second;
+        }
+        if (minute > 59)
+        {
+            hour++;
+            minute = minute - 60;
+        }
+        if (minute < 0)
+        {
+            hour--;
+            minute = 60 + minute;
+        }
+        if (hour > 23)
+        {
+            hour = hour - 24;
+        }
+        if (hour < 0)
+        {
+            hour = 24 + hour;
+        }
     }
 };
 
