@@ -69,9 +69,9 @@ struct Clock
         // 秒を時間、分、秒の順番に変換して、それぞれ加算する
         int residue;
         hour = hour + (diff_second / 60 / 60);
-        residue = diff_second % 60;
-        minute = (minute + residue) / 60;
-        residue = diff_second % 60 % 60;
+        residue = diff_second - ((diff_second / 60 / 60) * 60 * 60);
+        minute = minute + (residue / 60);
+        residue = residue - ((residue / 60) * 60);
         second = second + residue;
     }
 };
