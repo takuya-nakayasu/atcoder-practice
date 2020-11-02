@@ -26,12 +26,28 @@ bitset<50> subtract(bitset<50> A, int x)
 // Aに含まれる要素に1を加える(ただし、要素49が含まれる場合は0になるものとする)
 bitset<50> increment(bitset<50> A)
 {
-    return A << 1;
+    if (A.test(49))
+    {
+        bitset<50> B = A << 1;
+        return B.set(0);
+    }
+    else
+    {
+        return A << 1;
+    }
 }
 // Aに含まれる要素から1を引く(ただし、要素0が含まれる場合は49になるものとする)
 bitset<50> decrement(bitset<50> A)
 {
-    return A >> 1;
+    if (A.test(0))
+    {
+        bitset<50> B = A >> 1;
+        return B.set(49);
+    }
+    else
+    {
+        return A >> 1;
+    }
 }
 
 // Sに値xを加える
