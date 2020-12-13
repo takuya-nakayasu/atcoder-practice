@@ -4,6 +4,12 @@
         "vector": "cpp",
         "iosfwd": "cpp",
         "iterator": "cpp",
-        "bitset": "cpp"
+        "bitset": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp"
     }
 }

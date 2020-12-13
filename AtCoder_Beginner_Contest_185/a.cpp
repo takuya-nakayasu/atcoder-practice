@@ -3,13 +3,14 @@ using namespace std;
 
 int main()
 {
-    int x;
-    cin >> x;
+    int A1, A2, A3, A4;
+    cin >> A1 >> A2 >> A3 >> A4;
+    vector<int> vec(4);
+    vec.at(0) = A1;
+    vec.at(1) = A2;
+    vec.at(2) = A3;
+    vec.at(3) = A4;
+    sort(vec.begin(), vec.end());
 
-    if (x < 0)
-    {
-        x = 0;
-    }
-
-    cout << x << endl;
+    cout << vec.at(0) << endl;
 }
